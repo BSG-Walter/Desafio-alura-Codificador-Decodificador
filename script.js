@@ -40,7 +40,7 @@ botonCopiar.addEventListener("click",function(event){
 });
 
 function Encriptar(texto){
-    texto = QuitarAcentuacion(texto)
+    texto = PrepararTexto(texto)
     texto = texto.replaceAll("e", "enter");
     texto = texto.replaceAll("i", "imes");
     texto = texto.replaceAll("a", "ai");
@@ -50,7 +50,7 @@ function Encriptar(texto){
 }
 
 function Desencriptar(texto){
-    texto = QuitarAcentuacion(texto)
+    texto = PrepararTexto(texto)
     texto = texto.replaceAll("enter", "e");
     texto = texto.replaceAll("imes", "i");
     texto = texto.replaceAll("ai", "a");
@@ -59,7 +59,9 @@ function Desencriptar(texto){
     return texto;
 }
 
-function QuitarAcentuacion(texto){
+function PrepararTexto(texto){
+    //esta funcion pasa el texto a minuscula y cambia los acentos, para que siempre se pueda usar la aplicacion
+    texto = texto.toLowerCase();
     texto = texto.replaceAll("á", "a");
     texto = texto.replaceAll("é", "e");
     texto = texto.replaceAll("í", "i");
